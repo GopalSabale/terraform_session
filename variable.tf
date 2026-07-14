@@ -23,5 +23,13 @@ variable "instance_name" {
 
 variable "intance_count" {
   type = number
-  default = 4
+  default = 2
+}
+
+variable "for_eachdemo" {
+  type=map(string)
+  default={
+    qa="t3.micro"
+    dev="t3.small"
+  }
 }

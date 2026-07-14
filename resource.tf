@@ -16,3 +16,13 @@ data "aws_vpc" "default" {
 }
 
 
+resource "aws_instance" "for_each_demo" {
+  ami = var.ami_id
+  for_each = var.for_eachdemo
+  instance_type = each.value
+  key_name = var.key_name
+   subnet_id     = "subnet-0873ab06bdc0f7edc"
+   tags = {
+     Name="ec2-${each.key}"
+   }
+}
